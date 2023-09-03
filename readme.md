@@ -1,48 +1,35 @@
-# TypeScript Express API Bootstrap (base / project starter)
+# Spotify Accounts Authentication Examples
 
-This is a repository intended to serve as a starting point if you want to bootstrap a express API project in TypeScript.
+This project contains basic demos showing the different OAuth 2.0 flows for [authenticating against the Spotify Web API](https://developer.spotify.com/web-api/authorization-guide/).
 
-## Features
+These examples cover:
 
-- [TypeScript](https://www.typescriptlang.org/) (v4)
-- [ts-node-dev](https://github.com/wclr/ts-node-dev)
-- [Prettier](https://prettier.io/)
-- [ESLint](https://eslint.org/) with:
-  - [Simple Import Sort](https://github.com/lydell/eslint-plugin-simple-import-sort/)
-  - [Import plugin](https://github.com/benmosher/eslint-plugin-import/)
-- [Jest](https://jestjs.io) with [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro)
-- [GitHub Action workflows](https://github.com/features/actions) set up to run tests and linting on push
+* Authorization Code flow
+* Client Credentials flow
+* Implicit Grant flow
 
-## Running the app
+## Installation
 
-```
-# install dependencies
-npm install
+These examples run on Node.js. On [its website](http://www.nodejs.org/download/) you can find instructions on how to install it. You can also follow [this gist](https://gist.github.com/isaacs/579814) for a quick and easy way to install Node.js and npm.
 
-# run in dev mode on port 3000
-npm run dev
+Once installed, clone the repository and install its dependencies running:
 
-# generate production build
-npm run build
+    $ npm install
 
-# run generated content in dist folder on port 3000
-npm run start
-```
+### Using your own credentials
+You will need to register your app and get your own credentials from the Spotify for Developers Dashboard.
 
-## Testing
+To do so, go to [your Spotify for Developers Dashboard](https://beta.developer.spotify.com/dashboard) and create your application. For the examples, we registered these Redirect URIs:
 
-### Jest with supertest
+* http://localhost:8888 (needed for the implicit grant flow)
+* http://localhost:8888/callback
 
-```
-npm run test
-```
+Once you have created your app, replace the `client_id`, `redirect_uri` and `client_secret` in the examples with the ones you get from My Applications.
 
-## Linting
+## Running the examples
+In order to run the different examples, open the folder with the name of the flow you want to try out, and run its `app.js` file. For instance, to run the Authorization Code example do:
 
-```
-# run linter
-npm run lint
+    $ cd authorization_code
+    $ node app.js
 
-# fix lint issues
-npm run lint:fix
-```
+Then, open `http://localhost:8888` in a browser.
