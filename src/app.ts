@@ -3,7 +3,6 @@ import path from "path";
 var cors = require('cors');
 import * as bodyParser from "body-parser";
 import { loadApiEndpoints } from "./controllers/api";
-import { loadLastFMEndpoints } from "./controllers/lastfm";
 import { connect } from "../src/config/db";
 import { loadUserEndpoints } from "./controllers/user";
 import { loadCommunitiesEndpoints } from "./controllers/communities";
@@ -27,7 +26,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, "../public"), { maxAge: 31557600000 }));
 
 loadApiEndpoints(app);
-loadLastFMEndpoints(app);
 loadUserEndpoints(app);
 loadCommunitiesEndpoints(app);
 loadPostsEndpoints(app);
