@@ -56,7 +56,6 @@ export async function addTrackToPlaylist(spotifyApi: any, spotifyToken: string |
     spotifyApi.setAccessToken(spotifyToken);
     
     await spotifyApi.addTracksToPlaylist(idPlaylist, [`spotify:track:${idTrack}`]);
-
 }
 
 export async function crearDailySong(spotifyApi: any, spotifyToken: string | undefined): Promise<SPTrack | undefined> {
